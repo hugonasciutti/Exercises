@@ -1,2 +1,2 @@
 # Java
-Starting Java studies.
+Java projects.
