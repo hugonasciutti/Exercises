@@ -1,0 +1,23 @@
+{
+  "name": "reactwithwebpack",
+  "version": "1.0.0",
+  "description": "React using webpack",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugonasciutti/Exercises.git"
+  },
+  "author": "Hugo Nasciutti <hugonasciutti@gmail.com> (http://hugonasciutti.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugonasciutti/Exercises/issues"
+  },
+  "homepage": "https://github.com/hugonasciutti/Exercises#readme",
+  "devDependencies": {
+    "webpack": "^2.3.1"
+  },
+  "dependencies": {}
+}
