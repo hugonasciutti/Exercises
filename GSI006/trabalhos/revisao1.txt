@@ -1,0 +1,65 @@
+========================
+= O que deve ser feito =
+========================
+Criar um programa em C que apresente:
+
+1) o número e a respectiva descrição do item, tal que o item tem o menor número associado;
+
+2) o número e o nome de todos os itens que foram inseridos pelo usuário, na ordem inversa de inserção.
+
+==============
+= Restrições =
+==============
+O usuário deve inserir 5 itens: número e nome. Um exemplo de entrada de dados é a seguinte:
+
+23 bola
+5 carro
+13 caneta
+12 lápis
+7 régua
+
+O tamanho do espaço reservado para guardar a descrição de um item é 20. Isto significa que a descrição de um item deve ter no MÁXIMO 19 caracteres. Assim, a descrição "castanha-do-amazonas", por exemplo, possui 20 caracteres e, portanto,excede o tamanho máximo.
+
+A saída do programa deve ser tal qual a seguinte:
+
+	Item com menor numero = 5 carro
+
+	Itens na ordem inversa
+	----------------------
+	7 celular
+	12 mesa
+	13 caneta
+	5 carro
+	23 bola
+
+A inserção e a apresentação das itens ocorrem na entrada e saída padrões, respectivamente.
+
+===========================
+= O que deve ser entregue =
+===========================
+Um arquivo .c contendo o programa especificado acima. O programa deve ter sido previamente testado e se comportar como esperado, quando executado.
+
+O arquivo deve ser nomeado como
+
+gsi006-2017-1-revisao1-mat.c
+
+tal que vc deve substituir mat por seu número de matrícula.
+
+=================
+= Como entregar =
+=================
+Você deve enviar uma mensagem para meu email contendo o arquivo acima como anexo. A mensagem deve seguir o padrão a seguir:
+
+* Assunto: [GSI006 2017/1] revisão 1
+
+* Corpo: nome e número de matrícula do remetente
+
+* Anexo: gsi006-2017-1-revisao1-mat.c
+
+===================
+= Quando entregar =
+===================
+ Até as 18h, de 6 de abril
+
+
+  
