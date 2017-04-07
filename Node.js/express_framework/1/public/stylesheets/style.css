@@ -1,0 +1,34 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+div.scroll {
+    background-color: #00FFFF;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+}
+
+div.hidden {
+    background-color: #00FF00;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+div.img {
+  display: inline-flex;
+  width: 500px;
+  height: 400px;
+  overflow: auto;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
