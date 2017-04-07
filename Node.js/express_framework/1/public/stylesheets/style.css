@@ -22,9 +22,9 @@ div.hidden {
 }
 
 div.img {
+  margin: auto;
   display: inline-flex;
   width: 500px;
-  height: 400px;
   overflow: auto;
 }
 

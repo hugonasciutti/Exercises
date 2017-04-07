@@ -8,13 +8,22 @@ block content
       div(class="img")
         img(src="images/1.jpg", alt="")
         img(src="images/2.jpg", alt="")
-    p The overflow property specifies what to do if the content of an element exceeds the size of the element's box.
-    
-    p overflow:scroll
-    div(class="scroll")
-      p You can use the overflow property when you want to have better control of the layout. The default value is visible.
       
-    p overflow:hidden
-    div(class="hidden")
-      p You can use the overflow property when you want to have better control of the layout. The default value is visible.
+  p(id="x_result") X: 
+    span 0
+  
+  p(id="x_result") Y: 
+    span 0
+
+  p The overflow property specifies what to do if the content of an element exceeds the size of the element's box.
     
+  p overflow:scroll
+  div(class="scroll")
+    p You can use the overflow property when you want to have better control of the layout. The default value is visible.
+    
+  p overflow:hidden
+  div(class="hidden")
+    p You can use the overflow property when you want to have better control of the layout. The default value is visible.
+
+
+  include ./footer.pug
