@@ -1,11 +1,11 @@
 {
-  "name": "helloworld",
+  "name": "redux",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "webpack": "webpack --progress",
-    "dev": "run-p webpack start"
+    "build": "webpack --progress --watch",
+    "dev": "run-p build start"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -17,14 +17,10 @@
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "nodemon": "^1.11.0",
-    "npm-run-all": "^4.0.2",
     "react": "^15.5.3",
-    "react-dom": "^15.5.3",
     "webpack": "^2.3.3"
   }
 }

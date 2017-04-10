@@ -1,8 +1,18 @@
-# Hello World
+# Redux
 
-A simple Hello World.
+- Redux with React routes.
+- nodemon watch all changes.
+- webpack watch all changes.
 
-- Node.js + React + Express + webpack + nodemon
+Using .react extension to indicate its content.
+
+Tools:
+- Node.js
+- React, React Router
+- Redux
+- Express
+- webpack
+- nodemon
 
 ## Address
 `localhost:3000`
