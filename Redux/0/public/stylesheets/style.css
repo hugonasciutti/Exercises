@@ -7,6 +7,15 @@ a {
   color: #00B7FF;
 }
 
+h1.h1Header {
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.rootApp {
+  text-align: center;
+}
+
 #footer {
   border-top: 1px solid black;
   text-align: center;

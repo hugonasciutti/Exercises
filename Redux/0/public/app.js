@@ -9,9 +9,14 @@ import LandingIndex from './components/LandingIndex.react';
 import LandingAbout from './components/LandingAbout.react';
 
 render((
-  <Router history={history}>
-    <Route path="/" component={Layout} />
-    <Route path="/index" component={LandingIndex} />
-    <Route path="/about" component={LandingAbout} />
-  </Router>
+  <div className="rootApp">
+    <Router history={history}>
+      <Route path="/" component={Layout}>
+        <IndexRoute component={LandingIndex}></IndexRoute>
+        <Route path="/" component={LandingIndex}></Route>
+        <Route path="/index" component={LandingIndex}></Route>
+        <Route path="/about" component={LandingAbout}></Route>
+      </Route>
+    </Router>
+  </div>
 ), document.getElementById('root'))
