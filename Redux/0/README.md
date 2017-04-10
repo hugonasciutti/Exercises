@@ -9,7 +9,7 @@ Using .react extension to indicate its content.
 Tools:
 - Node.js
 - React, React Router
-- Redux
+- Redux, [Redux Thunk](https://github.com/gaearon/redux-thunk)
 - Express
 - webpack
 - nodemon
