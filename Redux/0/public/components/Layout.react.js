@@ -6,8 +6,8 @@ class Layout extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          <li><Link to="/">/</Link></li>
+        <ul className="Links">
+          Links:
           <li><Link to="index">Index</Link></li>
           <li><Link to="about">About</Link></li>
         </ul>

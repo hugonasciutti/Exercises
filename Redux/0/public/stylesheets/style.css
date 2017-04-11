@@ -16,6 +16,10 @@ h1.h1Header {
   text-align: center;
 }
 
+.Links {
+  text-align: left;
+}
+
 #footer {
   border-top: 1px solid black;
   text-align: center;

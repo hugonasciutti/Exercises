@@ -12,8 +12,10 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
+    "material-ui": "^0.17.3",
     "morgan": "~1.8.1",
     "pug": "~2.0.0-beta11",
+    "react-tap-event-plugin": "^2.0.1",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {

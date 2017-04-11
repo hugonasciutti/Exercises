@@ -20,8 +20,7 @@ Tools:
 ## Installation and Execution
 
 1° `$ npm install`<br>
-2° `$ npm run webpack`<br>
-3° `$ npm run start`<br>
+2° `$ npm run dev`<br>
 
 If you face `Error: EACCES: permission denied`, try running start with sudo:<br>
 `$ sudo npm run start`
