@@ -3,11 +3,10 @@ const initialState = {
   count: 0
 }
 
-function homeReducer(state, action) {
+const homeReducer = (state = initialState, action) => {
   if(typeof state === 'undefined') {
     return initialState;
   }
-
   switch (action.type) {
     case 'Modify':
       return Object.assign( {}, state, { h1: payload });
