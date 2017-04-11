@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { changeH1 } from '../actions/changeContent'
 import { Count } from '../actions/Count'
 
 class _Index extends React.Component {
