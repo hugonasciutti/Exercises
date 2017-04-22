@@ -1,0 +1,32 @@
+=====================
+= Lista             =
+= Por Autran Macedo =
+=====================
+
+1) O que é uma lista?
+É um rol (uma sequência) de itens. Os itens podem ser de diferentes tipos, mas estão associados a um determinado conceito.
+
+Exemplos de lista:
+- lista de aprovados da UFU em SI em 2016/2
+- lista de bens de Fulano de Tal
+
+2) Como representar uma lista no computador?
+- vetor: os itens estão em posições contíguas de mem
+- aloc.dinâmica: os itens podem estar dispersos na mem.
+
+3) Quais são operações que podem ser realizadas em uma lista?
+- criar (create)
+- destruir (destroy)
+- inserir um item (insert)
+- remover um item (remove)
+- encontrar um item
+  - pela chave de busca (find)
+  - pela posição do item na lista (select)
+- apresentar
+  - quantos itens (count)
+  - um item (show)
+  - todos os itens (showAll)
+- ordenar (sort)
+
+4) Exemplo de programas
+Vide  arquivos no diretório corrente
