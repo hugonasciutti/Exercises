@@ -4,17 +4,18 @@ class OnSubmit extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      verificar: false
+      verificar: false,
+      css: ''
     }
+    this.css = ''
   }
 
-  hasError() {
+  hasError(e) {
+    e.preventDefault()
     console.log('this.state.verificar: ', this.state.verificar);
     if(this.state.verificar) {
   	   console.log('verifiquei e apontei os erros');
-       this.setState({
-         verificar: false
-       })
+       this.setState({css: 'hasError'})
     } else {
       console.log('não verifiquei, this.state.verificar é false');
     }
@@ -23,10 +24,10 @@ class OnSubmit extends React.Component {
   render() {
     return (
     <div>
-      <form id="myform" onSubmit={() => this.setState({verificar: true})}>
-    	   <div onClick={this.hasError()} >Hello</div>
+      <form id="myform" onSubmit={(e) => this.hasError(e)}>
+    	   <input className={`${this.state.css}`} ></input>
       </form>
-      <button form="myform">Submit</button>
+      <button onClick={() => this.setState({ verificar: true })} form="myform">Submit</button>
     </div>
     )
   }
