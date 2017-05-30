@@ -1,3 +1,3 @@
 # Jest
 
-Jest is a testing framework.
+Jest is a testing framework for React.

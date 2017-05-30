@@ -24,8 +24,8 @@ class OnSubmit extends React.Component {
   render() {
     return (
     <div>
-      <form id="myform" onSubmit={(e) => this.hasError(e)}>
-    	   <input className={`${this.state.css}`} ></input>
+      <form id="myform">
+    	   <input type="text" onSubmit={console.log('input rodou submit sozinho')} className={`${this.state.css}`} ></input>
       </form>
       <button onClick={() => this.setState({ verificar: true })} form="myform">Submit</button>
     </div>

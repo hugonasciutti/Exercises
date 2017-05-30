@@ -1,5 +1,5 @@
 {
-  "name": "jest-project-test",
+  "name": "enzyme-project",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -20,6 +20,7 @@
     "pug": "~2.0.0-beta11",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-router": "^3.0.0",
     "serve-favicon": "~2.4.2",
     "webpack": "^2.5.1"
   },

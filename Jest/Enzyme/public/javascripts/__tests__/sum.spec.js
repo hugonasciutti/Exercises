@@ -1,4 +1,4 @@
-import { sum } from '../javascripts/sum';
+import { sum } from '../sum';
 
 describe('General Test', () => {
   it('adds 1 + 2 equal 3', () => {
