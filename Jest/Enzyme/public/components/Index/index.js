@@ -9,7 +9,7 @@ class Index extends Component {
     return (
       <div>
         <h1>This is the Index Page</h1>
-        {items.map(item => item)}
+        {items.map((item, index) => <h2 key={`item-${index + 1}-index`}>{item}</h2>)}
       </div>
     );
   }
