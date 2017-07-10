@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> should delete item from array 1`] = `
+<About>
+  <div>
+    <h1>
+      This is the About Page
+    </h1>
+    <h2
+      className="item"
+      onClick={[Function]}
+    />
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      1
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      2
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      3
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      4
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      5
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      6
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      7
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      8
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      9
+    </h2>
+  </div>
+</About>
+`;
+
+exports[`<About /> should delete item from array 2`] = `
+<About>
+  <div>
+    <h1>
+      This is the About Page
+    </h1>
+    <h2
+      className="item"
+      onClick={[Function]}
+    />
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      1
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      3
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      4
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      5
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      6
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      7
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      8
+    </h2>
+    <h2
+      className="item"
+      onClick={[Function]}
+    >
+      9
+    </h2>
+  </div>
+</About>
+`;
+
+exports[`<About /> should render <About /> component 1`] = `
+<div>
+  <h1>
+    This is the About Page
+  </h1>
+  <h2
+    className="item"
+    onClick={[Function]}
+  />
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    1
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    2
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    3
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    4
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    5
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    6
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    7
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    8
+  </h2>
+  <h2
+    className="item"
+    onClick={[Function]}
+  >
+    9
+  </h2>
+</div>
+`;
