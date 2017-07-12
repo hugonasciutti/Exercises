@@ -7,4 +7,10 @@ describe('<Index />', () => {
     const wrapper = shallow(<Index />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('Immutable Page\'s Title', () => {
+    const wrapper = shallow(<Index />);
+    const title = wrapper.find('#title').node.props.children;
+    expect(title).toBe('Index Title');
+  });
 });

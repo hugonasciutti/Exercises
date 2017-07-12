@@ -8,7 +8,7 @@ class Index extends Component {
     const items = ['one', 'two', 'three'];
     return (
       <div>
-        <h1>This is the Index Page</h1>
+        <h1 id="title">Index Title</h1>
         {items.map((item, index) => <h2 key={`item-${index + 1}-index`}>{item}</h2>)}
       </div>
     );

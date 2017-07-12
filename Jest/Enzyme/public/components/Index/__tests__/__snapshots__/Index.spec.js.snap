@@ -9,8 +9,10 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div>
-    <h1>
-        This is the Index Page
+    <h1
+        id="title"
+    >
+        Index Title
     </h1>
     <h2>
         one
@@ -24,8 +26,10 @@ ShallowWrapper {
 </div>,
   "nodes": Array [
     <div>
-      <h1>
-            This is the Index Page
+      <h1
+            id="title"
+      >
+            Index Title
       </h1>
       <h2>
             one
@@ -73,8 +77,10 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div>
-          <h1>
-                    This is the Index Page
+          <h1
+                    id="title"
+          >
+                    Index Title
           </h1>
           <h2>
                     one
@@ -88,8 +94,10 @@ ShallowWrapper {
 </div>,
         "_debugID": 2,
         "_renderedOutput": <div>
-          <h1>
-                    This is the Index Page
+          <h1
+                    id="title"
+          >
+                    Index Title
           </h1>
           <h2>
                     one
