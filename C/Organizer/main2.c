@@ -22,6 +22,7 @@ int main(int argc, char const *argv[]) {
   }
 
   FILE * fPointer;
+  FILE * fWrite;
 
   char *file_name = (char *) malloc(strlen(argv[1]) * sizeof(char));
 
@@ -30,27 +31,51 @@ int main(int argc, char const *argv[]) {
     file_name[i] = argv[1][i];
   }
 
-  printf("%s\n", file_name);
   fPointer = fopen(file_name, "r");
 
   int file_size = fsize(file_name);
   char ch;
 
   int x = 0,
-      y = 0;
+      new_file = 0,
+      file_number = 0;
 
-  while(x < file_size) {
+  while(1) {
     ch = fgetc(fPointer);
-    
-    if(ch == '\n') {
-      y++;
+
+    if(ch == '/'){
+      if(fgetc(fPointer) == '*') {
+        file_number++;
+
+        if(file_number < 9) {
+          sprintf(file_name, "0%d.c", file_number);
+        } else {
+          sprintf(file_name, "%d.c", file_number);
+        }
+
+        while(1) {
+          fWrite = fopen(file_name, "a");
+          ch = fgetc(fPointer);
+          fprintf(fWrite, "%c", ch);
+          printf("%c\n", ch);
+          if(ch == '*'){
+            if(fgetc(fPointer) == '/') {
+              break;
+            }
+          }
+
+        }
+      }
     }
 
-    if(ch == EOF) {
+
+    if(feof(fPointer)) {
       break;
     }
-
     x++;
   }
+
+  fclose(fPointer);
+
   return 0;
 }
