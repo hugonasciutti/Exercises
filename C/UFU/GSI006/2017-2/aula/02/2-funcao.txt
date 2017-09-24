@@ -1,0 +1,505 @@
+Função
+######
+Função (no contexto da linguagem C) é um conjunto de instruções que possui um determinado objetivo; é muito útil para encapsular a computação de uma parte de um aplicativo. Veja exemplo abaixo.
+
+float xyz (int i, float f);
+...
+
+int main ()
+{
+   int a = 2;
+   float b = 2.0;
+   printf ("%f", xyz (a, b) );
+   return 0;
+}
+
+float
+xyz (int i, float f)
+
+{
+   float r = 0.0;
+   while (i > 0)
+   {
+      r += f;
+      i--;
+   }
+   return r;
+}
+
+Observe:
+* a função main fica concisa; a função main deve ser o roteiro do aplicativo;
+
+* o uso de função permite a modularização de um aplicativo;
+
+* um aplicativo fica mais fácil de ser modificado (manutenção);
+
+* a ordem e a tipagem dos argumentos passados à xyz coincide com os parâmetros declarados nessa função;
+
+* os parâmetros de uma função são variáveis "locais".
+
+Boa prática de programação
+--------------------------
+- a função main deve ser a primeira função; as demais funções seguem a função
+main em ordem alfabética.
+
+- toda função deve ser precedida por um comentário (vide padrão de codif.)
+
+- priorize o uso de variáveis locais;
+
+- minimize o uso de variáves externas (globais - extern);
+
+- use passagem de argumentos para "trocar" dados entre as funções.
+
+
+Passagem de argumentos para funções
+
+###################################
+Dois tipos: valor; endereço.
+
+Diferença: na passagem de argumentos por endereço, o resultado da computação da
+função é refletido no argumento. Exemplo:
+
+#include <stdio.h>
+
+float div (float a, float b, unsigned char *e);
+
+int
+main ()
+{
+   float dvdnd = 0.0;
+   float dvsor = 0.0;
+   float r = 0.0;
+   unsigned char err;
+
+   scanf ("%f %f", &dvdnd, &dvsor);
+
+   r = div (dvdnd, dvsor, &err);
+
+   if (err)
+      printf ("não é possível divisão por zero\n");
+   else
+      printf ("%f \n", r);
+
+   return 0;
+}
+
+// Retorna o resultado da divisão de a por b;
+// ou retorna 1, se b = 0
+float
+div (float a, float b, unsigned char *e)
+{
+   float r = 0.0;
+   *e = 0; // sem ocorrência de erro
+
+   if (b == 0)
+      *e = 1;
+   else
+      r = a / b;
+
+   return r;
+}
+
+
+
+Os argumentos dvdnd e dvsor são passados como valor; o argumento err é passado como endereço. O símbolo & indica passagem de endereço, neste caso o endereço da variável err. Qq alteração de valor na variável *e, da função div, afeta o valor da variável err, da função main.
+
+Importante: quando o nome de um vetor é passado para uma função, essa passagem é como endereço. Então, qq alteração no conteúdo do vetor será percebido fora da função.
+
+Exercício 1
+-----------
+Faça um programa que apresenta N números de um vetor em ordem descendente considerando as posições do vetor. O programa carrega o vetor e, em seguida, apresenta seu conteúdo.
+
+O número máximo de posições do vetor é 200. O valor N e os números são obtidos de stdin. O primeiro número é o valor de N; os números seguintes são aqueles que deverão ser carreados no vetor.
+
+int
+main ()
+{
+   ...
+   i = carrega (v);
+   apresenta (v, i);
+   return 0;
+}
+
+Uma solução para o exercício 1
+------------------------------
+
+int carrega (int *v);
+int menor (int *v, int i);
+void apresenta (int *v, int i);
+
+int
+main ()
+{
+   int v[MAX];
+   int i = 0;
+
+   i = carrega (v);
+   printf ("menor número = %d\n", menor (v, i) );
+   apresenta (v, i);
+
+   return 0;
+}
+
+// apresenta os n valores em v, na ordem inversa
+void
+apresenta (int *v, int i)
+{
+   printf ("números na ordem inversa\n");
+   while (--i >= 0)
+      printf ("%d ", v[i]);
+   printf ("\n");
+}
+
+// lê n números de stdin e os guarda em v
+int
+carrega (int *v)
+{
+   int i = 0;
+   int n = 0; // quantidade de numeros informada pelo usuario
+
+   scanf ("%d", &n);
+
+   if (n > MAX)
+      n = MAX;
+
+   for (i = 0; i < n; i++)
+      scanf ("%d", &v[i]);
+
+   return i;
+}
+
+// retorna o menor valor em v, que possui n posições
+int
+menor (int *v, int n)
+{
+   int m = n - 1;
+
+   while (--n >= 0)
+      if (v[n] < v[m])
+	 m = n;
+
+   return v[m];
+}
+
+
+Exercício 2
+-----------
+Criar um programa que um usuário possa realizar diferentes consultas a uma coleção de registros de temperatura: apresentar a resposta na tela do computador (stdout).
+
+Um registro de temperatura é combinação dos seguintes dados: temperatura (número real), nome da cidade (20 caracteres contíguos) onde ocorreu a temperatura e nome da região (15 caracteres contíguos) do país onde está situada a cidade. A coleção de registos está situado em um único vetor (rt).
+
+O tamanho da coleção e os registros de temperatura são informados pelo usuário, em tempo de execução do programa, por meio do teclado (stdin). Um exemplo segue abaixo:
+
+4
+15.3 Uberlandia Centro-Oeste
+-5.0 Gramado Sul
+6.0 Chapeco Sul
+23.2 Recife Nordeste
+
+O programa deve apresentar na tela do computador (stdout) as disponíveis ao usuário. Para cada uma das consultas abaixo, apresentar a temperatura, a cidade e a região:
+
+a) cidade com menor registro de temperatura;
+b) registro de temperatura de uma cidade;
+c) os registros de temperatura de uma regiao.
+
+Uma solução para o Exercício 2
+------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// --- Definitions ---
+#define MAX 20
+
+struct regTemp
+{
+   float temp; 	     // temperatura
+   char  cidade[MAX];// nome da cidade onde ocorreu a temp
+   char  regiao[MAX];// nome da regiao onde se situa a cidade
+};
+typedef struct regTemp RegTemp;
+
+// --- Prototypes ---
+void 		carrega	(RegTemp *rt, int n);
+int 		cidade 	(RegTemp *rt, int n);
+RegTemp 	menor 	(RegTemp *rt, int n);
+void 		opUsuario (RegTemp *rt, int n);
+void 		regiaoU (RegTemp *rt, int n);
+
+// ---------------------------------------------------------------------
+
+int
+main ()
+{
+   RegTemp *rt = NULL; // vetor que guarda os reg.temp
+   int n = 0;          // tamanho de rt
+
+   scanf ("%d", &n); 	// captura o tamanho de rt
+   rt = (RegTemp *) malloc (n * sizeof (RegTemp) );
+   if (rt == NULL)
+   {
+      fprintf (stderr, "problema na alocação\n");
+      return 5;
+   }
+   carrega (rt, n);
+   opUsuario (rt, n);
+
+   free (rt);
+
+   return 0;
+}
+
+// lê n números do stdin e os carrega em rt
+void
+carrega (RegTemp *rt, int n)
+{
+   int i;
+
+   for (i = 0; i < n; i++)
+   {
+      scanf ("%f %s %s", &rt[i].temp, rt[i].cidade, rt[i].regiao);
+      setbuf (stdin, NULL);
+   }
+}
+
+// Retorna a posição em rt que guarda o registro de uma cidade
+int
+cidade (RegTemp *rt, int n)
+{
+   int i = 0;
+   char cid[MAX]; // guarda o nome de uma cidade digitado pelo usuario
+
+   printf ("digite o nome da cidade\n");
+   scanf ("%s", cid);
+   setbuf (stdin, NULL);
+
+   for (i = 0; i < n; i++)
+      if ( ( strcmp (cid, rt[i].cidade) ) == 0 )
+	break;
+
+   return i;
+}
+
+// Retorna o registro com menor valor de temperatura
+RegTemp
+menor (RegTemp *rt, int n)
+{
+   int i = 0;
+   int menor = 0;
+
+   for (i = 0; i < n; i++)
+      if (rt[i].temp < rt[menor].temp)
+         menor = i;
+
+   return rt[menor];
+}
+
+// Realiza a interação com o usuário
+void
+opUsuario (RegTemp *rt, int n)
+{
+   int j = 0;
+   RegTemp aux; // guarda um reg.temp
+   char op = 0;
+
+   while (op != '9')
+   {
+      scanf ("%c", &op);
+      setbuf (stdin, NULL);
+
+      switch (op)
+      {
+         case '1':
+            aux = menor (rt, n);
+            printf ("%4.1f %s %s\n\n", aux.temp, aux.cidade, aux.regiao);
+	    break;
+
+         case '2':
+	    j = cidade (rt, n);
+	    if (j < n)
+    	       printf ("%4.1f %s %s\n\n", rt[j].temp, rt[j].cidade,
+					  rt[j].regiao);
+	    break;
+
+         case '3':
+	    regiaoU (rt, n);
+	    break;
+
+	 case '9':
+	    printf("bye!\n\n");
+	    break;
+
+	 default:
+	    fprintf (stderr, "ops!\n\n");
+	    break;
+      } // switch
+   } // while
+}
+
+// Apresenta os registros de uma região
+void
+regiaoU (RegTemp *rt, int n)
+{
+   int i;
+   char encontrou = 0;
+   char reg[MAX]; // guarda o nome de uma regiao digitado pelo usuario
+
+   printf ("digite o nome da regiao\n");
+   scanf ("%s", reg);
+   setbuf (stdin, NULL);
+
+   for (i = 0; i < n; i++)
+      if ( ( strcmp (reg, rt[i].regiao) ) == 0 )
+      {
+         encontrou = 1;
+	 printf ("%4.1f %s %s\n\n", rt[i].temp, rt[i].cidade,
+	                            rt[i].regiao);
+      }
+
+   if (!encontrou)
+      fprintf (stderr, "regiao %s nao encontrada\n\n", reg);
+}
+
+
+ARGC & ARGV
+###########
+A função main também tem parâmetros, assim é possível passar argumentos para um programa em tempo de lançamento, isto é, antes do programa iniciar sua execução.
+
+Você já passou argumentos para programas antes deles iniciarem, por exemplo:
+gcc teste.c -o teste.exe
+
+Como o gcc "sabe" qual é o nome do arquivo a ser compilado e qual é o nome do arquivo binário a ser criado?
+
+Resposta: o nome dos arquivos foram passados para a função main. A função main possui dois parâmetros: argc e argv. O protótipo da função main segue abaixo.
+
+int main (int argc, char *argv[]);
+ou
+int man (int argc, char ** argv);
+
+argc guarda a quantidade de argumentos passados para o programa portanto, argc é do tipo int. Quando um programa é lançado sem argumentos, argc é igual a 1.
+
+argv é uma matriz, tal que cada elemento é do tipo char. Contudo, argv é tratado como um vetor de strings. Cada posição do vetor guarda um string. Cada string é um argumento que o usuário passou para o programa (função main).
+
+A posição argv[0] sempre guarda o nome do programa que está sendo executado. Os argumentos passados para o programa estarão nas demais posições de argv.
+
+Lembrete: um argumento é reconhecido após ser detectado um caractere branco.  Observe o lançamento do gcc abaixo
+
+gcc teste.c -o teste.exe
+
+Qual é valor de ARGC é Resposta: 4
+
+Qual é o conteúdo de ARGV?
+Resposta:
+ARGV[0] = "gcc"
+ARGV[1] = "teste.c"
+ARGV[2] = "-o"
+ARGV[3] = "teste.exe"
+
+Não é necessário alocar espaço para argv, o SO se encarrega dessa parte.
+Mas o programador deve declarar argc e argv no cabeçalho da função main.
+
+Exercício 3 : argc e argv
+-------------------------
+Crie um programa que apresenta o produtos de dois números inteiros. Esses
+números são passados para o programa em tempo de lançamento. Exemplo:
+
+prod.exe 411 5550
+
+Cuidado: o usuário pode erroneamente digitar caracteres não numéricos.
+
+Uma solução para o Exercício 3
+------------------------------
+
+int tudoAlg (char *s);
+
+int
+main (int argc, char *argv[])
+{
+   if (argc < 3)
+   {
+      fprintf (stderr, "%s: missing arguments\n", argv[0]);
+      return 5;
+   }
+
+   if ( !tudoAlg (argv[1] )
+   {
+      fprintf (stderr, "%s: argument %s not num\n", argv[0], arg[1]);
+      return 10;
+   }
+
+   if ( !tudoAlg (argv[2])
+   {
+      fprintf (stderr, "%s: argument %s not num\n", argv[0], argv[2]);
+      return 10;
+   }
+
+   return atoi (argv[1]) * atoi (argv[2]);
+}
+
+// Retorna 1 se todos os caracteres em s são numéricos;
+// retorna 0, caso contrário.
+
+int
+tudoAlg (char *s)
+{
+   int i = 0;
+   for (i = 0; s[i] != '\0'; i++)
+      if ( !isdigit (s[i]) )
+         return 0;
+
+   return 1;
+}
+
+Exercício 4: argc e argv
+------------------------
+Crie um programa que apresenta a área das seguintes figuras geométricas: quadrado, retângulo, trângulo e círculo. O tipo da figura geométrica e os dados necessários para o cáculo da área são passados em tempo de lançamento do programa.
+
+Considere area.exe é o nome do arquivo que contém o código executável do programa mencionado acima. Então, o lançamento correto desse programa, respectivamente, para cada uma das figuras geométricas citadas, segue abaixo.
+
+quadrado, retângulo, trângulo e círculo
+> area.exe quad 8
+
+> area.exe retang -a 8.3 -e 5.2
+
+> area.exe triang -a 9 -b 4.3
+
+> area.exe circ 5.0
+
+Sempre o nome da figura geométrica segue o nome do arquivo que contém o programa executável. Em seguida:
+* se a figura for quadrado ou retângulo, um número deve ser apresentado, representando, respectivamente, o lado do quadrado ou raio do círculo;
+
+* se a figura for retângulo ou triângulo, dois números devem ser apresentados, representando
+	* os lados maior e menor do retângulo,
+	* ou a altura e a base do triângulo.
+
+Os dados do retângulo e do triângulo podem ser apresentados em qualquer ordem e por isso são identificados por tags:
+* "-a" e "-e" (o maior lado e o menor lado do retângulo, respectivamente);
+* "-a" e "-b" (a altura e a base do triângulo, respectivamente).
+
+Restrições
+----------
+1. A linguagem de programação é C.
+
+2. O uso do padrão de codificação da disciplina é obrigatório. O topo do arquivo deve conter, além dos comentários esperados, o nome de cada um dos membros do grupo.
+
+3. O exercício é individual.
+
+4. Deve haver uma função específica para o cálculo de área de cada figura geométrica. Deve haver também uma função que verifica a consistência dos argumentos passados para o programa. Funções adicionais são permitidas, desde que tenham sentido no contexto do exercício.
+
+5 A função main deve ser um "roteiro" para o programa; deve fazer chamadas às funções. Um exemplo segue abaixo:
+
+int
+main (...)
+{
+   if ( !args Ok (...) )
+      return ...;
+
+   if ( "quadrado" )
+      ...
+   else if ( "retângulo" )
+      ...
+   ...
+
+   return 0;
+}
