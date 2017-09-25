@@ -7,7 +7,6 @@ Hugo Nasciutti
 2017
 */
 
-
 int main(int argc, char const *argv[]) {
   char **document;
   int size = 3;
@@ -18,8 +17,6 @@ int main(int argc, char const *argv[]) {
 
   printf("\nScanning:\n");
   for(row = 0; row < size; row++) {
-    //setbuf is important before every allocation, i don't know why, but the application crashes without it;
-    setbuf(stdin, NULL);
     document[row] = (char *) malloc(row_size * sizeof(char));
     printf("document[%d]: ", row);
     scanf("%s", document[row]);
@@ -27,7 +24,7 @@ int main(int argc, char const *argv[]) {
 
   printf("\nPrinting:\n");
   for(row = 0; row < size; row++) {
-    // document[row] has an array of characters, it is already being printed by %s, you don't need to read char by char with another for(y);
+    // document[row] has an array of characters, word printing is already being handled by %s which is doing a loop until find a \0, you don't need to read char by char with another for(y), the printf %s is taking care of this for you;
     // document[row] = ['w','o','r','d','\0'] == "row";
     // \0 is important to sign the end of an string;
     printf("document[%d] = %s\n", row, document[row]);
