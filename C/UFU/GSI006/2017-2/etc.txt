@@ -1,0 +1,5 @@
+//Atribuição para struct alocada dinamicamente;
+m->t == (*m).t = 5000;
+
+//Andando com o ponteiro
+*(v-1) == v--
