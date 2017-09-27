@@ -1,0 +1,15 @@
+// In this example below the file read was:
+// file.txt
+27.5 Uberlândia SE
+17.5 Araguari SE
+0.5 Uberaba SE
+
+FILE *f = fopen("file.txt", "r");
+float myFloat;
+
+// The pointer f is at position 0
+
+while (fscanf(f, "%f", &myFloat) != EOF) {
+  // When it gets it's first value the pointer will walk by it's own, you don't need to worry about moving the pointer;
+  // The pointer got the float value of 27.5 and now is at position 5
+}
