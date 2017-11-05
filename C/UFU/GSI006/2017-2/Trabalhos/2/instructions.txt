@@ -1,0 +1,173 @@
+Trabalho: Set
+=============
+Em C, quando uma aplicação demanda um tipo de dado NÃO primitivo, o projetista da aplicação faz uso de struct para "criar" esse tipo dado. Várias funções também podem ser criadas para lidar com esse tipo. Quando esse tipo de dado é util para diferentes aplicações, então faz sentido tornar esse tipo de dado e suas respctivas funções em um TAD.
+
+TAD (Tipo Abstrato de Dado) é um arquivo .o que oferece serviços para outros arquivos .c. Um TAD é similar a uma biblioteca de programas sobre um determinado tipo "objeto". Por exemplo, o objeto "string" não existe em C, então foi implementada a bilioteca string.o, que encerra as funções para lidar com esse tipo de dado.
+
+Um TAD é constituído por um arquivo .c (ou vários) e por um arquivo .h (ou vários). Os arquivos .c contém as funções que lidam com o tipo de dado definido pelo TAD. Os arquivos .h contém essencialmente definições: structs, defines, protótipos de funções; pode conter também declaração de variáveis externas (globais).
+
+Este trabalho consiste em criar um TAD que implementa conjunto matemático. Essa implementação consiste da estrutura de dados e das respectivas funções.
+
+Problema
+--------
+Criar um TAD que implemente um conjunto matemático. O conjunto abriga elementos do mesmo tipo. O tipo é aquele definido pela aplicação do usuário. Portanto, a aplicação pode criar um conjunto, por exemplo, de números inteiros ou de alunos de ED1.
+
+O que fazer
+-----------
+Criar um TAD que ofereça as seguintes funções sobre conjunto:
+a) criação 	(setCreate) de um conjunto X;
+b) inserção 	(setInsert) de um elemento em X;
+c) remoção 	(setDelete) de um elemento de X;
+d) captura	(setCard) da cardinalidade de X;
+e) existência 	(setIn) de um elemento em X;
+f) captura	(setGetE) do i-ésimo elemento de X;
+g) captura	(setGetP) da posição de um elemento em X;
+h) destruir 	(setDestroy) o conjunto X.
+
+Restrições
+----------
+1. A linguagem de programação é C.
+
+2. O uso do padrão de codificação da disciplina é obrigatório. O topo de cada arquivo deve conter, além dos comentários esperados, o nome de cada um dos membros do grupo.
+
+3. O trabalho deve ser realizado em grupo de 3 alunos matriculados em GSI006 - Estrutura de Dados 1. 
+
+4. Um conjunto (Set) é um "tipo" definido tal como abaixo.
+
+	struct set
+	{
+	   void **s;	// ponteiro para o conjunto s
+	   int n;   	// cardinalidade de s
+	}
+	typedef struct set Set;
+
+o membro s é um array, alocado dinamicamente, com MAXSET posições. Cada posição de s é um ponteiro para o elemento do conjunto.
+
+	Set *x = (Set *) malloc (sizeof (Set));
+             |
+             |
+             v
+ 
+	      s    n
+	   +----+----+
+	   |  * |    |   
+	   +----+----+
+	   x->s = (void **) malloc (MAXSET * sizeof (void *));
+              |
+	      |            0   1         MAXSET -1
+              |          +---+---+-----+---+
+              +--------> | * | * | ... | * |
+			 +---+---+-----+---+
+			   |   |
+			   |   +-------------+
+			   v		     |
+			  +------------+     |
+			  | elemento a |     v
+			  +------------+   +------------+
+					   | elemento b | ...
+					   +------------+
+
+O valor de MAXSET é irrelevante para a aplicação.
+
+A aplicação define qual é o tipo do elemento que deverá ser inserido no conjunto. 
+
+5. As funções definidas na Seção "O que fazer" devem estar em conformidade com os protótipos a seguir.
+
+// setCard
+// -------
+// Return the cardinality of Set s.
+int setCard (Set *s);
+
+// setCreate
+// ---------
+// Create a set.
+// Return a pointer to a Set or return NULL, in the case of malloc error.
+Set * setCreate ();
+
+// setDelete
+// ---------
+// Delete the element of position i in Set s.
+void setDelete (int i, Set *s);
+
+// setDestroy
+// ----------
+// Destroy Set s.
+void setDestroy (Set *s);
+
+// setGetE
+// -------
+// Get the i-th element of Set s (i = 0 means the first element in s).
+// Return the pointer to the i-th element in s;
+// or return NULL, if i >= s->N.
+void * setGetE (Set *s, int i);
+
+// setGetEP
+// --------
+// Get the element position of e in Set s.
+// Return an integer (0..(s->N) - 1) that corresponds to the position of e in s;
+// or return s->N, if e is not in s.
+//
+// cmp is a pointer to a comparison function which is provided by the application.
+// This function compares whether x is less than, equal to, or greater than y,
+// returning, respectively, a number less than, equal to, or greater than zero.
+int setGetEP (void *e, Set *s, int (*cmp)(const void *x, const void *y));
+
+// setIn
+// -----
+// Verify if element e is in Set s.
+// Return 1, if e is in s; or return 0, otherwise.
+//
+// cmp is a pointer to a comparison function which is provided by the application.
+// This function compares whether x is less than, equal to, or greater than y,
+// returning, respectively, a number less than, equal to, or greater than zero.
+int setIn (void *e, Set *s, int (*cmp)(const void *x, const void *y));
+
+// setInsert
+// ---------
+// Insert element e into Set s.
+// Return 1, if insertion occurred;
+// or return 0, if insertion NOT occurred (s is full).
+// It is up to the application verifying if e is already exists in s.
+int setInsert (void *e, Set *s);
+
+
+6. A implementação das funções especificadas no Item 5 devem estar em um arquivo .c cujo nome é set.c
+
+7. Os protótipos especificados no Item 5 devem estar em um arquivo .h cujo nome é set.h
+
+8. As funções especificadas no Item 5 devem estar consistentes com a teoria de conjuntos. Exemplo: não há elementos repetidos em um conjunto. 
+
+O que entregar
+--------------
+Um arquivo do tipo zip (ou tar.gz) contendo os arquivos set.c, set.h correspondentes a este trabalho. 
+
+Em tempo: zip e tar.gz são tipos de arquivos gerados por programas de compactação, nativos no Linux.
+
+Como entregar
+-------------
+Este trabalho de ver ser entregue por email. A mensagem de envio do trabalho deve ter seus campos preenchidos como abaixo.
+
+Remetente:	um membro do grupo com CÓPIA para TODOS os demais membros
+
+Destinatário: 	email do professor (ufu.br)
+
+Assunto: 	[GSI006] 2017/2 trabalho: set
+
+Corpo da mensagem: nome e número de matrícula de cada um dos membros
+		   do grupo
+
+Anexo: 	o arquivo mencionado na Seção "O que entregar" 
+
+	O nome do arquivo deve ter o seguinte leiaute:
+
+	2017-2-gsi006-set.zip
+
+	ou
+
+	2017-2-gsi006-set.tar.gz
+
+	onde mat deve ser substituído pelo número de matrícula do 
+	membro do grupo que está enviando a mensagem.
+
+
+
