@@ -1,38 +1,38 @@
 Trabalho: Set
 =============
-Em C, quando uma aplicação demanda um tipo de dado NÃO primitivo, o projetista da aplicação faz uso de struct para "criar" esse tipo dado. Várias funções também podem ser criadas para lidar com esse tipo. Quando esse tipo de dado é util para diferentes aplicações, então faz sentido tornar esse tipo de dado e suas respctivas funções em um TAD.
+Em C, quando uma aplicaÃ§Ã£o demanda um tipo de dado NÃƒO primitivo, o projetista da aplicaÃ§Ã£o faz uso de struct para "criar" esse tipo dado. VÃ¡rias funÃ§Ãµes tambÃ©m podem ser criadas para lidar com esse tipo. Quando esse tipo de dado Ã© util para diferentes aplicaÃ§Ãµes, entÃ£o faz sentido tornar esse tipo de dado e suas respctivas funÃ§Ãµes em um TAD.
 
-TAD (Tipo Abstrato de Dado) é um arquivo .o que oferece serviços para outros arquivos .c. Um TAD é similar a uma biblioteca de programas sobre um determinado tipo "objeto". Por exemplo, o objeto "string" não existe em C, então foi implementada a bilioteca string.o, que encerra as funções para lidar com esse tipo de dado.
+TAD (Tipo Abstrato de Dado) Ã© um arquivo .o que oferece serviÃ§os para outros arquivos .c. Um TAD Ã© similar a uma biblioteca de programas sobre um determinado tipo "objeto". Por exemplo, o objeto "string" nÃ£o existe em C, entÃ£o foi implementada a bilioteca string.o, que encerra as funÃ§Ãµes para lidar com esse tipo de dado.
 
-Um TAD é constituído por um arquivo .c (ou vários) e por um arquivo .h (ou vários). Os arquivos .c contém as funções que lidam com o tipo de dado definido pelo TAD. Os arquivos .h contém essencialmente definições: structs, defines, protótipos de funções; pode conter também declaração de variáveis externas (globais).
+Um TAD Ã© constituÃ­do por um arquivo .c (ou vÃ¡rios) e por um arquivo .h (ou vÃ¡rios). Os arquivos .c contÃ©m as funÃ§Ãµes que lidam com o tipo de dado definido pelo TAD. Os arquivos .h contÃ©m essencialmente definiÃ§Ãµes: structs, defines, protÃ³tipos de funÃ§Ãµes; pode conter tambÃ©m declaraÃ§Ã£o de variÃ¡veis externas (globais).
 
-Este trabalho consiste em criar um TAD que implementa conjunto matemático. Essa implementação consiste da estrutura de dados e das respectivas funções.
+Este trabalho consiste em criar um TAD que implementa conjunto matemÃ¡tico. Essa implementaÃ§Ã£o consiste da estrutura de dados e das respectivas funÃ§Ãµes.
 
 Problema
 --------
-Criar um TAD que implemente um conjunto matemático. O conjunto abriga elementos do mesmo tipo. O tipo é aquele definido pela aplicação do usuário. Portanto, a aplicação pode criar um conjunto, por exemplo, de números inteiros ou de alunos de ED1.
+Criar um TAD que implemente um conjunto matemÃ¡tico. O conjunto abriga elementos do mesmo tipo. O tipo Ã© aquele definido pela aplicaÃ§Ã£o do usuÃ¡rio. Portanto, a aplicaÃ§Ã£o pode criar um conjunto, por exemplo, de nÃºmeros inteiros ou de alunos de ED1.
 
 O que fazer
 -----------
-Criar um TAD que ofereça as seguintes funções sobre conjunto:
-a) criação 	(setCreate) de um conjunto X;
-b) inserção 	(setInsert) de um elemento em X;
-c) remoção 	(setDelete) de um elemento de X;
+Criar um TAD que ofereÃ§a as seguintes funÃ§Ãµes sobre conjunto:
+a) criaÃ§Ã£o 	(setCreate) de um conjunto X;
+b) inserÃ§Ã£o 	(setInsert) de um elemento em X;
+c) remoÃ§Ã£o 	(setDelete) de um elemento de X;
 d) captura	(setCard) da cardinalidade de X;
-e) existência 	(setIn) de um elemento em X;
-f) captura	(setGetE) do i-ésimo elemento de X;
-g) captura	(setGetP) da posição de um elemento em X;
+e) existÃªncia 	(setIn) de um elemento em X;
+f) captura	(setGetE) do i-Ã©simo elemento de X;
+g) captura	(setGetP) da posiÃ§Ã£o de um elemento em X;
 h) destruir 	(setDestroy) o conjunto X.
 
-Restrições
+RestriÃ§Ãµes
 ----------
-1. A linguagem de programação é C.
+1. A linguagem de programaÃ§Ã£o Ã© C.
 
-2. O uso do padrão de codificação da disciplina é obrigatório. O topo de cada arquivo deve conter, além dos comentários esperados, o nome de cada um dos membros do grupo.
+2. O uso do padrÃ£o de codificaÃ§Ã£o da disciplina Ã© obrigatÃ³rio. O topo de cada arquivo deve conter, alÃ©m dos comentÃ¡rios esperados, o nome de cada um dos membros do grupo.
 
-3. O trabalho deve ser realizado em grupo de 3 alunos matriculados em GSI006 - Estrutura de Dados 1. 
+3. O trabalho deve ser realizado em grupo de 3 alunos matriculados em GSI006 - Estrutura de Dados 1.
 
-4. Um conjunto (Set) é um "tipo" definido tal como abaixo.
+4. Um conjunto (Set) Ã© um "tipo" definido tal como abaixo.
 
 	struct set
 	{
@@ -41,37 +41,37 @@ Restrições
 	}
 	typedef struct set Set;
 
-o membro s é um array, alocado dinamicamente, com MAXSET posições. Cada posição de s é um ponteiro para o elemento do conjunto.
+o membro s Ã© um array, alocado dinamicamente, com MAXSET posiÃ§Ãµes. Cada posiÃ§Ã£o de s Ã© um ponteiro para o elemento do conjunto.
 
-	Set *x = (Set *) malloc (sizeof (Set));
-             |
-             |
-             v
- 
-	      s    n
-	   +----+----+
-	   |  * |    |   
-	   +----+----+
-	   x->s = (void **) malloc (MAXSET * sizeof (void *));
-              |
-	      |            0   1         MAXSET -1
-              |          +---+---+-----+---+
-              +--------> | * | * | ... | * |
-			 +---+---+-----+---+
-			   |   |
-			   |   +-------------+
-			   v		     |
-			  +------------+     |
-			  | elemento a |     v
-			  +------------+   +------------+
-					   | elemento b | ...
-					   +------------+
+	 Set *x = (Set *) malloc (sizeof (Set));
+				|
+				|
+				v
 
-O valor de MAXSET é irrelevante para a aplicação.
+				s    n
+		+----+----+
+		|  * |    |
+		+----+----+
+		x->s = (void **) malloc (MAXSET * sizeof (void *));
+							|
+							|            0   1         MAXSET -1
+							|          +---+---+-----+---+
+							+--------> | * | * | ... | * |
+											   +---+---+-----+---+
+													|   |
+													|   +-------------+
+													v		   					  |
+													+------------+    |
+													| elemento a |    v
+													+------------+   +------------+
+																					 | elemento b | ...
+																					 +------------+
 
-A aplicação define qual é o tipo do elemento que deverá ser inserido no conjunto. 
+O valor de MAXSET Ã© irrelevante para a aplicaÃ§Ã£o.
 
-5. As funções definidas na Seção "O que fazer" devem estar em conformidade com os protótipos a seguir.
+A aplicaÃ§Ã£o define qual Ã© o tipo do elemento que deverÃ¡ ser inserido no conjunto.
+
+5. As funÃ§Ãµes definidas na SeÃ§Ã£o "O que fazer" devem estar em conformidade com os protÃ³tipos a seguir.
 
 // setCard
 // -------
@@ -131,32 +131,32 @@ int setIn (void *e, Set *s, int (*cmp)(const void *x, const void *y));
 int setInsert (void *e, Set *s);
 
 
-6. A implementação das funções especificadas no Item 5 devem estar em um arquivo .c cujo nome é set.c
+6. A implementaÃ§Ã£o das funÃ§Ãµes especificadas no Item 5 devem estar em um arquivo .c cujo nome Ã© set.c
 
-7. Os protótipos especificados no Item 5 devem estar em um arquivo .h cujo nome é set.h
+7. Os protÃ³tipos especificados no Item 5 devem estar em um arquivo .h cujo nome Ã© set.h
 
-8. As funções especificadas no Item 5 devem estar consistentes com a teoria de conjuntos. Exemplo: não há elementos repetidos em um conjunto. 
+8. As funÃ§Ãµes especificadas no Item 5 devem estar consistentes com a teoria de conjuntos. Exemplo: nÃ£o hÃ¡ elementos repetidos em um conjunto.
 
 O que entregar
 --------------
-Um arquivo do tipo zip (ou tar.gz) contendo os arquivos set.c, set.h correspondentes a este trabalho. 
+Um arquivo do tipo zip (ou tar.gz) contendo os arquivos set.c, set.h correspondentes a este trabalho.
 
-Em tempo: zip e tar.gz são tipos de arquivos gerados por programas de compactação, nativos no Linux.
+Em tempo: zip e tar.gz sÃ£o tipos de arquivos gerados por programas de compactaÃ§Ã£o, nativos no Linux.
 
 Como entregar
 -------------
 Este trabalho de ver ser entregue por email. A mensagem de envio do trabalho deve ter seus campos preenchidos como abaixo.
 
-Remetente:	um membro do grupo com CÓPIA para TODOS os demais membros
+Remetente:	um membro do grupo com CÃ“PIA para TODOS os demais membros
 
-Destinatário: 	email do professor (ufu.br)
+DestinatÃ¡rio: 	email do professor (ufu.br)
 
 Assunto: 	[GSI006] 2017/2 trabalho: set
 
-Corpo da mensagem: nome e número de matrícula de cada um dos membros
+Corpo da mensagem: nome e nÃºmero de matrÃ­cula de cada um dos membros
 		   do grupo
 
-Anexo: 	o arquivo mencionado na Seção "O que entregar" 
+Anexo: 	o arquivo mencionado na SeÃ§Ã£o "O que entregar"
 
 	O nome do arquivo deve ter o seguinte leiaute:
 
@@ -166,8 +166,7 @@ Anexo: 	o arquivo mencionado na Seção "O que entregar"
 
 	2017-2-gsi006-set.tar.gz
 
-	onde mat deve ser substituído pelo número de matrícula do 
-	membro do grupo que está enviando a mensagem.
-
+	onde mat deve ser substituÃ­do pelo nÃºmero de matrÃ­cula do
+	membro do grupo que estÃ¡ enviando a mensagem.
 
 

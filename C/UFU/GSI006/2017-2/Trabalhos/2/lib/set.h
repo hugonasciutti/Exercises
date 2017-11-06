@@ -2,7 +2,7 @@
     Caliton Marcos Gonçalves Junior - 11711BSI261
     Hugo Sousa Nasciutti -            11621BSI260
     Joao Barbosa de Souza Neto -      11711BSI212
-*/ 
+*/
 
 // Prototypes of struct set's functions
 

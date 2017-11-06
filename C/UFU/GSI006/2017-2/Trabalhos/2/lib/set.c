@@ -19,55 +19,51 @@
 // setCard
 // -------
 // Return the cardinality of Set s.
-int
-setCard (Set *s)
+int setCard(Set *s)
 {
-    return s->n;
+  return s->n;
 }
 
 // setCreate
 // ---------
 // Create a set.
 // Return a pointer to a Set or return NULL, in the case of malloc error.
-Set*
-setCreate ()
+Set *setCreate()
 {
-    Set *s = ( Set * ) malloc ( sizeof( Set ) );
-    if ( s == NULL )
-        return NULL;
+  Set *s = (Set *)malloc(sizeof(Set));
+  if (s == NULL)
+    return NULL;
 
-    s->s = ( void ** ) malloc ( MAXSET * sizeof( void * ) );
-    if ( s->s == NULL )
-        return NULL;
+  s->s = (void **)malloc(MAXSET * sizeof(void *));
+  if (s->s == NULL)
+    return NULL;
 
-    s->n = 0;
+  s->n = 0;
 
-    return s;
+  return s;
 }
 
 // setDelete
 // ---------
 // Delete the element of position i in Set s.
-void
-setDelete (int i, Set *s)
+void setDelete(int i, Set *s)
 {
-    if ( i > s->n )
-        return;
+  if (s->n == 0 || i >= s->n)
+    return;
 
-    (s->n)--;
+  (s->n)--;
 
-    for ( ; i < s->n ; i++ )
-        s->s[i] = s->s[i+1];
+  for (; i < s->n; i++)
+    s->s[i] = s->s[i + 1];
 }
 
 // setDestroy
 // ----------
 // Destroy Set s.
-void
-setDestroy (Set *s)
+void setDestroy(Set *s)
 {
-    free( s->s );
-    free( s );
+  free(s->s);
+  free(s);
 }
 
 // setGetE
@@ -76,12 +72,12 @@ setDestroy (Set *s)
 // Return the pointer to the i-th element in s;
 // or return NULL, if i >= s->N.
 void *
-setGetE (Set *s, int i)
+setGetE(Set *s, int i)
 {
-    if ( i >= s->n )
-        return NULL;
+  if (i >= s->n)
+    return NULL;
 
-    return s->s[i];
+  return s->s[i];
 }
 
 // setGetEP
@@ -93,16 +89,15 @@ setGetE (Set *s, int i)
 // cmp is a pointer to a comparison function which is provided by the application.
 // This function compares whether x is less than, equal to, or greater than y,
 // returning, respectively, a number less than, equal to, or greater than zero.
-int
-setGetEP (void *e, Set *s, int (*cmp)(const void *x, const void *y))
+int setGetEP(void *e, Set *s, int (*cmp)(const void *x, const void *y))
 {
-    int i;
+  int i;
 
-    for ( i = 0 ; i < s->n ; i++ )
-        if ( cmp( e, s->s[i] ) == 0 )
-            return i;
+  for (i = 0; i < s->n; i++)
+    if (cmp(e, s->s[i]) == 0)
+      return i;
 
-    return s->n;
+  return s->n;
 }
 
 // setIn
@@ -113,16 +108,15 @@ setGetEP (void *e, Set *s, int (*cmp)(const void *x, const void *y))
 // cmp is a pointer to a comparison function which is provided by the application.
 // This function compares whether x is less than, equal to, or greater than y,
 // returning, respectively, a number less than, equal to, or greater than zero.
-int
-setIn (void *e, Set *s, int (*cmp)(const void *x, const void *y))
+int setIn(void *e, Set *s, int (*cmp)(const void *x, const void *y))
 {
-    int i;
+  int i;
 
-    for ( i = 0 ; i < s->n ; i++ )
-        if ( cmp( e, s->s[i] ) == 0 )
-            return 1;
+  for (i = 0; i < s->n; i++)
+    if (cmp(e, s->s[i]) == 0)
+      return 1;
 
-    return 0;
+  return 0;
 }
 
 // setInsert
@@ -131,12 +125,11 @@ setIn (void *e, Set *s, int (*cmp)(const void *x, const void *y))
 // Return 1, if insertion occurred;
 // or return 0, if insertion NOT occurred (s is full).
 // It is up to the application verifying if e is already exists in s.
-int
-setInsert (void *e, Set *s)
+int setInsert(void *e, Set *s)
 {
-    if ( s->n == MAXSET )
-        return 0;
+  if (s->n >= MAXSET)
+    return 0;
 
-    s->s[s->n++] = e;
-    return 1;
+  s->s[s->n++] = e;
+  return 1;
 }

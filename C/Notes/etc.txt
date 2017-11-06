@@ -3,3 +3,24 @@ m->t == (*m).t = 5000;
 
 //Andando com o ponteiro
 *(v-1) == v--
+
+(s->n)--;
+s->s[i] = s->s[i+1];
+
+
+setGetEP (void *e, Set *s, int (*cmp)(const void *x, const void *y))
+s->s[s->n++] = e;
+
+void
+setDelete (int i, Set *s)
+{
+    if ( i > s->n )
+        return;   // Retorno em void para parar função
+
+    (s->n)--;
+
+    while(i < s->n) {
+      i++;
+      s->s[i] = s->s[i+1];
+    }
+}
