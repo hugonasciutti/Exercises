@@ -1,0 +1,252 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazilian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage[a4paper,top=3cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\newcommand{\limit}[2]{\lim\limits_{x\rightarrow #1}\,#2}
+\newcommand{\ts}[1]{\tiny #1 \normalsize }
+\newcommand{\nl}{\hfill \newline}
+
+\begin{document}
+
+%\begin{titlepage}
+%\title{Resumo Matemática I}
+%\author{João Barbosa de Souza Neto}
+%\date{ }
+%\maketitle
+%\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\part{Matemática}
+
+\section{Propriedades}
+
+\subsection{Produtos Notáveis}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $(a+b)^2 = (a^2+2ab+b^2)$
+\item $(a-b)^2 = (a^2-2ab+b^2)$
+\item $(a+b)^3 = (a^3+3a^2b+3ab^2+b^3)$
+\item $(a-b)^3 = (a^3-3a^2b+3ab^2-b^3)$
+\end{itemize}
+\end{multicols}
+
+\subsection{Fatoração}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $a^2-b^2 = (a+b)(a-b)$
+\item $a^3-b^3 = (a-b)(a^2+ab+b^2)$
+\item $a^4-b^4 = (a-b)(a^3+a^2b+ab^2+b^3)$
+\item $a^2+b^2 = a^2+b^2$
+\item $a^3+b^3 = (a+b)(a^2-ab+b^2)$
+\item $a^4+b^4 = a^4+b^4$
+\end{itemize}
+\end{multicols}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $ax^2 + bx + c = a(x-x$\ts{1}$)(x-x$\ts{2}$)$
+\item $2x^2-3x+1 = 2(x-1)(x-\dfrac{1}{2})$
+\end{itemize}
+\end{multicols}
+
+\section{Matemágica}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $-a+b = b-a = -(a-b)$
+\item $-a-b = -(a+b)$
+\item $a^2 + b = a(a + \dfrac{b}{a})$
+\item $\sqrt{a} = \dfrac{a}{\sqrt{a}} \Rightarrow \dfrac{\sqrt{a}}{x} = \dfrac{a}{x\sqrt{a}}$
+\item $\dfrac{1}{\sqrt{a}} = \dfrac{\sqrt{a}}{a} \Rightarrow \dfrac{x}{\sqrt{a}} = \dfrac{x\sqrt{a}}{a}$
+\end{itemize}
+\end{multicols}
+
+\subsection{Exemplos Importantes}
+
+\begin{multicols}{2}
+\begin{itemize}
+\item $1-x = -(x-1)$
+\item $-x-1 = -(x+1)$
+\item $1 = 1^n = \sqrt[n]{1}$
+\item $-1 = -1^3 = \sqrt[3]{-1}$
+\item $x^2-1 = (x-1)(x+1)$
+\item $x^3-8 = (x-2)(x^2+2x+4)$
+\item $x^2+x = x(x+1)$
+\item $x^2+3xy = x(x+3y)$
+\end{itemize}
+\end{multicols}
+
+\subsection{Fórmula de Bhaskara}
+
+\begin{itemize}
+\item $\Delta = -4ac$
+\item $x = \dfrac{-b \pm \sqrt{\Delta}}{2a}$
+\end{itemize}
+
+\newpage
+
+\section{Módulo}
+
+\subsection{Propriedades}
+
+\begin{itemize}
+\item $|x| \geq 0$
+\item $|x| = \sqrt{x^2}$
+\item $|x| \cdot |y| = |x\cdot y|$
+\item $|x|^2 = |x^2| = x^2$
+\item $|x| < a = -a < x < a$
+\item $|x| < -a = a < x < -a$
+\end{itemize}
+
+\subsection{Definição}
+
+Para todo $x \in \mathbb{R}$:
+
+\begin{itemize}
+\item $|x| = 
+\left\{\begin{array}{lcl}
+\quad x & \text{se} & x \geq 0\\
+-x & \text{se} & x < 0
+\end{array}\right.$
+\end{itemize}
+
+\subsection{Exemplos Importantes}
+
+Módulo da diferença:
+
+\begin{itemize}
+\item $ |x-a| =
+\left\{\begin{array}{lcl}
+\quad x-a & \text{se} & x-a \geq 0\\
+-(x-a) & \text{se} & x-a < 0
+\end{array}\right.
+\Rightarrow
+|x-a| = 
+\left\{\begin{array}{lcl}
+x-a & \text{se} & x \geq a\\
+a-x & \text{se} & x < a
+\end{array}\right.$
+\end{itemize}
+\nl
+Módulo da soma:
+
+\begin{itemize}
+\item $ |x+a| =
+\left\{\begin{array}{lcl}
+\quad x+a & \text{se} & x+a \geq 0\\
+-(x+a) & \text{se} & x+a < 0
+\end{array}\right.
+\Rightarrow
+|x+a| = 
+\left\{\begin{array}{lcl}
+\quad x+a & \text{se} & x \geq -a\\
+-x-a & \text{se} & x < -a
+\end{array}\right.$
+\end{itemize}
+
+\subsection{Exemplos difíceis}
+
+\begin{itemize}
+\item $|2x-1| + |x+1| = $
+\\[2cm]
+\item $||x| - 1| = $
+\end{itemize}
+
+\newpage
+
+\part{Funções}
+
+\section{Funções}
+
+\subsection{Domínio}
+
+Para calcular o Domínio de uma função real $f(x)$, basta calcular quais números $x$ não pode assumir em $\mathbb{R}$, deste modo:
+
+\begin{itemize}
+\item $\dfrac{1}{a} \Rightarrow a \neq 0$
+\item $\sqrt[n]{a} \Rightarrow a \geq 0$, sendo n par
+\end{itemize}
+
+\subsection{Propriedades}
+
+\begin{itemize}
+\item $f(x) = K$, o resultado é a constante $K$
+\item $(f\pm g)(x) = f(x) \pm g(x)$
+\item $(f\cdot g)(x) = f(x) \cdot g(x)$
+\item $\dfrac{f}{g}(x) = \dfrac{f(x)}{g(x)} \text{, sendo } g(x) \neq 0$
+\item $(f \circ g)(x) = f( g(x) )$ (Função Composta)
+\end{itemize}
+
+\subsection{Exemplo}
+
+Na análise da função: $f(x)=\dfrac{|x-1|}{x-1}$
+\\[0.2cm]
+Devemos primeiro considerar o fato de que o domínio da mesma é $D=\mathbb{R}-\{1\}$.
+\nl
+Daí, segue que:
+
+$$
+f(x)=\dfrac{|x-1|}{x-1}\Rightarrow 
+f(x)=
+\left\{
+\begin{array}{lcl}
+\dfrac{x-1}{x-1} & \text{se} & x-1 > 0\\[0.5cm]
+\dfrac{-(x-1)}{x-1} & \text{se} & x-1 < 0
+\end{array}
+\right.
+\Rightarrow
+f(x)=
+\left\{
+\begin{array}{lcl}
+1 & \text{se} & x >  1\\[0.5cm]
+-1 & \text{se} & x < 1
+\end{array}
+\right.
+$$
+
+\newpage
+
+\part{Limites}
+
+\section{Limites}
+
+\subsection{Propriedades}
+
+\begin{itemize}
+\item $\limit{a}{mx+n} = ma+n $
+\item $\limit{a}{x^n} = a^n$, sendo $n \in \mathbb{N}-\{0\}$
+\end{itemize}
+
+Sendo $\limit{a}{f(x)} = L$ e $\limit{a}{g(x)} = M$:
+
+\begin{itemize}
+\item $\limit{a}{C \cdot f(x)} = C \cdot L$
+\item $\limit{a}{f(x)\pm g(x)} = L \pm M$
+\item $\limit{a}{f(x) \cdot g(x)} = L \cdot M$
+\item $\limit{a}{\dfrac{f(x)}{g(x)}} = \dfrac{\limit{a}{f(x)}}{\limit{a}{g(x)}} = \dfrac{L}{M}$, sendo $M \neq 0$
+\item $\limit{a}{[f(x)]^n} = L^n$, sendo $n \in \mathbb{N}-\{0\}$
+\end{itemize}
+
+\subsection{Exemplos Importantes}
+
+\begin{itemize}
+\item $\limit{0}{\dfrac{1}{1+x}} = 1$
+\item $\limit{a}{\dfrac{x^2-a^2}{x-a}} = \limit{a}{\dfrac{(x+a)(x-a)}{x-a}} = \limit{a}{x+a} = 2a$
+\item $\limit{1}{x^3+3x^2+5x+7} = 1^3+3 \cdot 1^2+5 \cdot 1+7 = 1 + 3 + 5 + 7 = 16$
+\end{itemize}
+
+
+
+\end{document}

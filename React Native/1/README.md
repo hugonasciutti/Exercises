@@ -24,3 +24,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools/emulator
 alias emu="$ANDROID_HOME/tools/emulator" #Needed alias for solve file not found problem.
 ```
+
+`CTRL+M` To access dev Setting, Hot Reload, Live Reload and more.
+`react-native log-android` To log errors on terminal
