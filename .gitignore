@@ -1,7 +1,13 @@
+# Editor Config
+.vscode
+
+# NPM
+package-lock.json
+yarn.lock
+
 # Logs
 logs
 *.log
-.vscode
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
