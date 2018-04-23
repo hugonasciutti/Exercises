@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   mode: 'development',
@@ -11,6 +12,11 @@ module.exports = {
   },
 
   devtool: 'source-map',
+
+  resolve: {
+    modules: [path.resolve(__dirname, 'node_modules')],
+    extensions: ['.js', '.jsx']
+  },
 
   module: {
     rules: [
