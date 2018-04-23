@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Final Form',
+      title: 'Boilerplate',
       template: './src/index.ejs'
     })
   ]

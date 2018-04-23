@@ -4,4 +4,6 @@ Dry boiler plate with:
 
 - Webpack dev server
 - React
-- Babel Env
+- Babel
+  - Env
+  - Stage-0
