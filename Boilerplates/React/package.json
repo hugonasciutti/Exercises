@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "final-form": "^4.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },
