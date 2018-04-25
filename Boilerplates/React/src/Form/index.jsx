@@ -4,42 +4,82 @@ import { Form, Field } from 'react-final-form'
 class MyForm extends Component {
   render = () => (
     <Form
-      initialValues={{ phone: 122, phone2: '555' }}
-      onSubmit={(fields) => new Promise((res) => setTimeout(() => res({ phone: 'deu pau no submit'}), 3000))}
+      onSubmit={console.log}
       render={(props) => (
-        <form id="ooo" onSubmit={props.handleSubmit}>
-          <Field validate={field => new Promise((res) => setTimeout(() => res(field == 'hugo' && 'Usuário já existe'), 3000))} name="phone">
-            {({ input, meta }) => {
-              return (
-                <div>
-                  <label>Phone</label>
-                  <input type="text" {...input} placeholder="Phone" />
-                  <span>{props.submitting && 'enviando...'}</span>
-                  <span>{props.validating && 'validando...'}</span>
-                  <span>{meta.error || meta.submitError}</span>
-                </div>
-              )
-            }}
+        <form onSubmit={props.handleSubmit}>
+          <h2>Input</h2>
+          <Field name="input">
+            {({ input, meta }) => (
+              <div>
+                <input type="text" {...input} placeholder="input" />
+                <pre>{JSON.stringify(input, 0, 2)}</pre>
+              </div>
+            )}
           </Field>
-          <Field validate={val => !val && 'não podevazio'} name="phone2">
-            {({ input, meta }) => {
-              return (
-                <div>
-                  <label>Phone2</label>
-                  <input type="text" value={input.value} onChange={input.onChange} placeholder="Phone" />
-                  {<span>{`${meta.touched}`}</span>}
-                </div>
-              )
-            }}
+          <hr></hr>
+          <h2>Textarea</h2>
+          <Field name="textarea">
+            {({ input, meta }) => (
+            <div>
+              <input type="text" {...input} placeholder="textarea" />
+              <pre>{JSON.stringify(input, 0, 2)}</pre>
+            </div>
+            )}
           </Field>
+          <hr></hr>
+          <h2>Checkbox</h2>
+          <Field type="checkbox" name="checkbox">
+            {({ input, meta }) => (
+              <div>
+                <input type="checkbox" {...input} />
+                <span>Option 1</span>
+                <pre>{JSON.stringify(input, 0, 2)}</pre>
+              </div>
+            )}
+          </Field>
+          <hr></hr>
+          <h2>Checkboxes</h2>
+          {[{ name: 'Option 1' }, { name: 'Option 2' }].map((option, key) => (
+            <Field type="checkbox" key={key} name={`checkboxes[${key}]`}>
+              {({ input, meta }) => (
+                <div>
+                  <input type="checkbox" {...input} />
+                  <span>{option.name}</span>
+                </div>
+              )}
+            </Field>
+          ))}
+          <pre>{JSON.stringify({ checkboxes: props.values.checkboxes }, 0, 2)}</pre>
+          <hr></hr>
+          <h2>Radio</h2>
+          <Field value="Option 1" type="radio" name="radio">
+            {({ input, meta }) => (
+              <div>
+                <input type="radio" {...input} />
+                <span>Option 1</span>
+                <pre>{JSON.stringify(input, 0, 2)}</pre>
+              </div>
+            )}
+          </Field>
+          <hr></hr>
+          <h2>Radios</h2>
+          {[{ name: 'Option 1' }, { name: 'Option 2' }].map((option, key) => (
+            <Field key={key} value={option.name} type="radio" name="radios">
+              {({ input, meta }) => (
+                <div>
+                  <input type="radio" {...input} />
+                  <span>{option.name}</span>
+                </div>
+              )}
+            </Field>
+          ))}
+          <pre>{JSON.stringify({ radios: props.values.radios }, 0, 2)}</pre>
+          <hr></hr>
+          <h2>DatePicker</h2>
 
-          <button form="ooo" type="submit">
+          <button type="submit">
             Submit
-        </button>
-
-          <button onClick={() => setTimeout(console.log, 0)}>
-            Reset
-        </button>
+          </button>
         </form>
       )}
     />

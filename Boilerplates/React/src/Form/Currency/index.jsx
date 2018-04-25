@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import numbro from 'core/utils/numbro'
-import { Input } from 'commons'
+import Input from '../'
 import { inScale } from 'commons-core/helper/number'
 
 function repeatZeroes(times) {
