@@ -20,10 +20,10 @@ class MyForm extends Component {
           <h2>Textarea</h2>
           <Field name="textarea">
             {({ input, meta }) => (
-            <div>
-              <input type="text" {...input} placeholder="textarea" />
-              <pre>{JSON.stringify(input, 0, 2)}</pre>
-            </div>
+              <div>
+                <input type="text" {...input} placeholder="textarea" />
+                <pre>{JSON.stringify(input, 0, 2)}</pre>
+              </div>
             )}
           </Field>
           <hr></hr>
@@ -39,11 +39,11 @@ class MyForm extends Component {
           </Field>
           <hr></hr>
           <h2>Checkboxes</h2>
-          {[{ name: 'Option 1' }, { name: 'Option 2' }].map((option, key) => (
+          {[{ name: 'Option 1', }, { name: 'Option 2' }, { name: 'Option 3', disabled: true }].map((option, key) => (
             <Field type="checkbox" key={key} name={`checkboxes[${key}]`}>
               {({ input, meta }) => (
                 <div>
-                  <input type="checkbox" {...input} />
+                  <input type="checkbox" {...input} disabled={option.disabled} />
                   <span>{option.name}</span>
                 </div>
               )}
@@ -63,11 +63,11 @@ class MyForm extends Component {
           </Field>
           <hr></hr>
           <h2>Radios</h2>
-          {[{ name: 'Option 1' }, { name: 'Option 2' }].map((option, key) => (
+          {[{ name: 'Option 1' }, { name: 'Option 2' }, { name: 'Option 3', disabled: true }].map((option, key) => (
             <Field key={key} value={option.name} type="radio" name="radios">
               {({ input, meta }) => (
                 <div>
-                  <input type="radio" {...input} />
+                  <input type="radio" {...input} disabled={option.disabled} />
                   <span>{option.name}</span>
                 </div>
               )}

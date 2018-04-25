@@ -6,6 +6,8 @@ import moment from 'commons-core/utils/moment'
 import { isValidDate } from '../utils'
 import FieldHOC from '../FieldHoc'
 
+const isValidDate = (value, format) => !value ? false : moment(value, format, true).isValid()
+
 class RWDatePicker extends Component {
   state = {
     date: ''

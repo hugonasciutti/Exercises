@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import numbro from 'core/utils/numbro'
+import numbro from './numbro'
 import Input from '../'
-import { inScale } from 'commons-core/helper/number'
+
+const inScale = (amount, scale) => amount / (10 ** scale)
 
 function repeatZeroes(times) {
   var result = ''
