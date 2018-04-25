@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mask should remap props for formsy standard 1`] = `
+<Field
+  formatter={[Function]}
+  formatterOnReceive={[Function]}
+  mask={
+    Array [
+      /\\[0-9\\]/,
+      /\\[0-9\\]/,
+      ":",
+      /\\[0-5\\]/,
+      /\\[0-9\\]/,
+    ]
+  }
+  validationError="general.formatInvalid"
+  validations={
+    Object {
+      "matchRegexp": /\\[0-9\\]\\[0-9\\]:\\[0-5\\]\\[0-9\\]/,
+    }
+  }
+/>
+`;
+
+exports[`Mask should render component 1`] = `
+<MaskedInput
+  className="form-control "
+  mask={
+    Array [
+      /\\[0-9\\]/,
+      /\\[0-9\\]/,
+      ":",
+      /\\[0-5\\]/,
+      /\\[0-9\\]/,
+    ]
+  }
+  onChange={[Function]}
+  placeholder="xx"
+  value="00:00"
+/>
+`;

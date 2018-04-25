@@ -1,9 +1,3 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
-class Input extends PureComponent {
-  render() {
-    return <input {...this.props} />
-  }
-}
-
-export default Input
+export default props => <input {...props} />

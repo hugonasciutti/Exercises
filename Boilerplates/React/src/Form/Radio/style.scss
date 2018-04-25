@@ -1,0 +1,14 @@
+.rw {
+  &-radio {
+    label {
+      margin: 0;
+    }
+    .space {
+      padding-left: 5px;
+    }
+    &-horizontal {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}

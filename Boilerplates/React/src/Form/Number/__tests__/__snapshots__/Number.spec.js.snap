@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Number Component should render 1`] = `
+<input
+  className="rw-number form-control"
+  onBlur={[Function]}
+  onChange={[Function]}
+  required={false}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Number Component should render replace default props 1`] = `
+<input
+  className="rw-number form-control"
+  name="a"
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholder="a"
+  required={true}
+  type="text"
+  value=""
+/>
+`;

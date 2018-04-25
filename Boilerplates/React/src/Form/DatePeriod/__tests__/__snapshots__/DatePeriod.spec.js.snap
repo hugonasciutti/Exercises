@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date Period Component should render 1`] = `
+<div
+  className="rw-date-period d-flex flex-row"
+>
+  <DatePicker
+    className="rw-date-period-first form-control"
+    dateFormat="MM/DD/YYYY"
+    onChange={[Function]}
+    required={false}
+    selectsStart={true}
+  />
+  <span
+    className="rw-date-period-separator d-flex align-items-center px-2"
+  >
+    <InjectIntl(Translate)
+      id="component.date.period.separator"
+    />
+  </span>
+  <DatePicker
+    className="rw-date-period-last form-control"
+    dateFormat="MM/DD/YYYY"
+    disabled={true}
+    onChange={[Function]}
+    required={false}
+    selectsEnd={true}
+  />
+</div>
+`;
+
+exports[`Date Period Component should render and replace date format 1`] = `
+<div
+  className="rw-date-period d-flex flex-row"
+>
+  <DatePicker
+    className="rw-date-period-first form-control"
+    dateFormat="MM/DD/Y"
+    onChange={[Function]}
+    required={false}
+    selectsStart={true}
+  />
+  <span
+    className="rw-date-period-separator d-flex align-items-center px-2"
+  >
+    <InjectIntl(Translate)
+      id="component.date.period.separator"
+    />
+  </span>
+  <DatePicker
+    className="rw-date-period-last form-control"
+    dateFormat="MM/DD/Y"
+    disabled={true}
+    onChange={[Function]}
+    required={false}
+    selectsEnd={true}
+  />
+</div>
+`;

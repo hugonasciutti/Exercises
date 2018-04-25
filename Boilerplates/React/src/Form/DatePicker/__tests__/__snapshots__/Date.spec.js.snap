@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Date Component should render 1`] = `
+<DatePicker
+  className="rw-date form-control"
+  dateFormat="MM/DD/YYYY"
+  fixedHeight={true}
+  onBlur={[Function]}
+  onChange={[Function]}
+  required={false}
+  selected={"1970-01-01T00:00:00.000Z"}
+/>
+`;
+
+exports[`Date Component should render and replace date format 1`] = `
+<DatePicker
+  className="rw-date form-control"
+  dateFormat="MM/DD/Y"
+  fixedHeight={true}
+  onBlur={[Function]}
+  onChange={[Function]}
+  required={false}
+  selected={"1970-01-01T00:00:00.000Z"}
+/>
+`;
+
+exports[`Date Component should render with placeholder 1`] = `
+<DatePicker
+  className="rw-date form-control"
+  dateFormat="MM/DD/YYYY"
+  fixedHeight={true}
+  onBlur={[Function]}
+  onChange={[Function]}
+  placeholderText="Date"
+  required={false}
+  selected={"1970-01-01T00:00:00.000Z"}
+/>
+`;

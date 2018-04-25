@@ -1,0 +1,31 @@
+.rw {
+  &-checkbox {
+    label {
+      margin: 0;
+    }
+    .space {
+      padding-left: 5px;
+    }
+  }
+}
+
+.rw-checkbox {
+
+  &-normalize {
+    display: inline-flex;
+    vertical-align: middle;
+    padding: 0px;
+    margin: 0px !important;
+
+    span {
+      font-weight: normal;
+    }
+  }
+
+  &-text {
+    display: inline-flex;
+    vertical-align: middle;
+    padding-left: 10px;
+  }
+
+}
