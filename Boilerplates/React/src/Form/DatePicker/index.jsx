@@ -2,9 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import moment from 'commons-core/utils/moment'
-import { isValidDate } from '../utils'
-import FieldHOC from '../FieldHoc'
+import moment from 'moment'
 
 const isValidDate = (value, format) => !value ? false : moment(value, format, true).isValid()
 
@@ -42,7 +40,6 @@ class RWDatePicker extends Component {
 
     return (
       <DatePicker
-        className="form-control"
         name={name}
         selected={this.getValue(date)}
         onBlur={ev => this.handleDateChange(ev.target.value)}
@@ -88,4 +85,4 @@ RWDatePicker.defaultProps = {
   required: false
 }
 
-export default FieldHOC(RWDatePicker)
+export default RWDatePicker

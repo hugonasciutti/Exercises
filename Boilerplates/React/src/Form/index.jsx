@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Field } from 'react-final-form'
+import DatePicker from './DatePicker'
 
 class MyForm extends Component {
   render = () => (
@@ -76,7 +77,7 @@ class MyForm extends Component {
           <pre>{JSON.stringify({ radios: props.values.radios }, 0, 2)}</pre>
           <hr></hr>
           <h2>DatePicker</h2>
-
+          <DatePicker />
           <button type="submit">
             Submit
           </button>
