@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Field } from 'react-final-form'
 import DatePicker from './DatePicker'
+import Currency from './Currency'
+import moment from 'moment'
 
 class MyForm extends Component {
   render = () => (
@@ -62,6 +64,7 @@ class MyForm extends Component {
               </div>
             )}
           </Field>
+          <pre>{JSON.stringify({ radio: props.values.radio }, 0, 2)}</pre>
           <hr></hr>
           <h2>Radios</h2>
           {[{ name: 'Option 1' }, { name: 'Option 2' }, { name: 'Option 3', disabled: true }].map((option, key) => (
@@ -77,7 +80,16 @@ class MyForm extends Component {
           <pre>{JSON.stringify({ radios: props.values.radios }, 0, 2)}</pre>
           <hr></hr>
           <h2>DatePicker</h2>
-          <DatePicker />
+          <Field name="date" >
+            {({ input, meta }) => <DatePicker {...input} />}
+          </Field>
+          <pre>{JSON.stringify({ date: props.values.date }, 0, 2)}</pre>
+          <hr></hr>
+          <h2>Currency</h2>
+          <Field name="price" >
+            {({ input, meta }) => <Currency {...input} />}
+          </Field>
+          <pre>{JSON.stringify({ price: props.values.price }, 0, 2)}</pre>
           <button type="submit">
             Submit
           </button>

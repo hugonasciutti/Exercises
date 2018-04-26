@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import numbro from './numbro'
-import Input from '../'
 
 const inScale = (amount, scale) => amount / (10 ** scale)
 
@@ -24,19 +22,14 @@ function removeOccurrences(from, toRemove) {
 class SimpleCurrencyInput extends Component {
   componentWillMount() {
     const { currency, value, tabIndex, readOnly } = this.props
-    numbro.culture(this.getCulture(currency))
 
-    this.state = {
+    this.setState({
       rawValue: value,
-      delimiters: numbro.cultureData().delimiters,
-      symbol: numbro.cultureData().currency.symbol,
+      delimiters: { decimal: ',', thousands: '.'},
+      symbol: 'R$',
       tabIndex,
       readOnly
-    }
-
-    this.onInputType = this.onInputType.bind(this)
-    this.formattedRawValue = this.formattedRawValue.bind(this)
-    this.getRawValue = this.getRawValue.bind(this)
+    })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,7 +38,7 @@ class SimpleCurrencyInput extends Component {
     }
   }
 
-  onInputType(event) {
+  onInputType = (event) => {
     const { currency, onChange, precision } = this.props
     const { decimal, thousands } = this.state.delimiters
     var value = event.target.value
@@ -78,7 +71,7 @@ class SimpleCurrencyInput extends Component {
     }[currency]
   }
 
-  getRawValue(displayedValue) {
+  getRawValue = (displayedValue) => {
     const { symbol, delimiters } = this.state
     const { decimal, thousands } = delimiters
     var result = displayedValue
@@ -92,7 +85,7 @@ class SimpleCurrencyInput extends Component {
     return intValue
   }
 
-  formattedRawValue(rawValue) {
+  formattedRawValue = (rawValue) => {
     const { precision } = this.props
     const { symbol, delimiters } = this.state
     const { decimal, thousands } = delimiters
@@ -131,12 +124,12 @@ class SimpleCurrencyInput extends Component {
 
   render() {
     return (
-      <Input
+      <input
         id={this.props.id}
         className={this.props.className}
         onBlur={this.props.onBlur}
         onFocus={this.props.onFocus}
-        onChangeEvent={this.onInputType}
+        onChange={this.onInputType}
         disabled={this.props.disabled}
         autoFocus={this.props.autoFocus}
         tabIndex={this.state.tabIndex}
