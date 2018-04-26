@@ -10,6 +10,7 @@ class MyForm extends Component {
       onSubmit={console.log}
       render={(props) => (
         <form onSubmit={props.handleSubmit}>
+
           <h2>Input</h2>
           <Field name="input">
             {({ input, meta }) => (
@@ -19,7 +20,9 @@ class MyForm extends Component {
               </div>
             )}
           </Field>
-          <hr></hr>
+
+          <hr/>
+
           <h2>Textarea</h2>
           <Field name="textarea">
             {({ input, meta }) => (
@@ -29,7 +32,9 @@ class MyForm extends Component {
               </div>
             )}
           </Field>
-          <hr></hr>
+
+          <hr/>
+
           <h2>Checkbox</h2>
           <Field type="checkbox" name="checkbox">
             {({ input, meta }) => (
@@ -40,7 +45,8 @@ class MyForm extends Component {
               </div>
             )}
           </Field>
-          <hr></hr>
+          <hr/>
+
           <h2>Checkboxes</h2>
           {[{ name: 'Option 1', }, { name: 'Option 2' }, { name: 'Option 3', disabled: true }].map((option, key) => (
             <Field type="checkbox" key={key} name={`checkboxes[${key}]`}>
@@ -53,7 +59,9 @@ class MyForm extends Component {
             </Field>
           ))}
           <pre>{JSON.stringify({ checkboxes: props.values.checkboxes }, 0, 2)}</pre>
-          <hr></hr>
+
+          <hr/>
+
           <h2>Radio</h2>
           <Field value="Option 1" type="radio" name="radio">
             {({ input, meta }) => (
@@ -65,7 +73,9 @@ class MyForm extends Component {
             )}
           </Field>
           <pre>{JSON.stringify({ radio: props.values.radio }, 0, 2)}</pre>
-          <hr></hr>
+
+          <hr/>
+
           <h2>Radios</h2>
           {[{ name: 'Option 1' }, { name: 'Option 2' }, { name: 'Option 3', disabled: true }].map((option, key) => (
             <Field key={key} value={option.name} type="radio" name="radios">
@@ -78,18 +88,35 @@ class MyForm extends Component {
             </Field>
           ))}
           <pre>{JSON.stringify({ radios: props.values.radios }, 0, 2)}</pre>
-          <hr></hr>
+
+          <h2>Select</h2>
+            <Field type="select" name="select">
+              {({ input, meta }) => (
+                <select {...input}>
+                  {[{ name: 'Option 1' }, { name: 'Option 2' }, { name: 'Option 3' }].map((option, key) => (
+                    <option key={key}>{option.name}</option>
+                  ))}
+                </select>
+              )}
+            </Field>
+          <pre>{JSON.stringify({ select: props.values.select }, 0, 2)}</pre>
+
+          <hr />
+
           <h2>DatePicker</h2>
           <Field name="date" >
             {({ input, meta }) => <DatePicker {...input} />}
           </Field>
           <pre>{JSON.stringify({ date: props.values.date }, 0, 2)}</pre>
-          <hr></hr>
+
+          <hr/>
+
           <h2>Currency</h2>
           <Field name="price" >
             {({ input, meta }) => <Currency {...input} />}
           </Field>
           <pre>{JSON.stringify({ price: props.values.price }, 0, 2)}</pre>
+
           <button type="submit">
             Submit
           </button>
