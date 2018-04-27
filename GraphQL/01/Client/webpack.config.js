@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
   module: {
     rules: [{ test: /\.(js|jsx)?$/, loader: 'babel-loader', exclude: /node_modules/ }]
