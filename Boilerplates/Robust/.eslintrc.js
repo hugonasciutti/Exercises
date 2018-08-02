@@ -18,6 +18,7 @@ module.exports = {
 		"react"
 	],
 	rules: {
+		'react/destructuring-assignment': "off",
 		'object-curly-newline': "off",
 		'import/no-named-as-default-member': "off",
 		'react/forbid-prop-types': "off",
