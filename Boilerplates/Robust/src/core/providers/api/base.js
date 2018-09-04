@@ -7,6 +7,6 @@ const config = {
 
 const baseApi = axios.create(config)
 
-baseApi.request = (path, options) => baseApi(path, defaultsDeep(options))
+baseApi.request = (path, options) => baseApi(path, defaultsDeep(config, options))
 
 export default baseApi
